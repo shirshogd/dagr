@@ -11,8 +11,6 @@
 ![stdlib only](https://img.shields.io/badge/dependencies-stdlib%20only-brightgreen)
 ![agents](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20OpenCode-lightgrey)
 
-<a href="mailto:shirsho@tilasmi.com"><img src="docs/assets/contact.png" alt="Contact me: shirsho@tilasmi.com" width="100%"></a>
-
 **Want to work with me?** Email [shirsho@tilasmi.com](mailto:shirsho@tilasmi.com).
 
 </div>
