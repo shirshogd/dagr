@@ -128,18 +128,7 @@ Run these from your root. The long form is `python -B .dagr/engine/dagr/cli.py <
 
 ## Status
 
-dagr is new. Treat it with some suspicion.
-
-- It is ported from a working private engine and reshaped for general ICM trees. The suite has 98 tests (`python -B -m unittest discover -s engine/tests`). None uses a model or the network; every test uses a fake agent.
-- **Not smoke-tested:** no real `claude`, `codex`, or `opencode` binary has been run through the engine. The `claude` command line follows the reference implementation's flags; the `codex` and `opencode` templates are best guesses from their documented CLIs. Run `--dry-run` first, then one small ticket, and check `assets/T##/worker-1.out`.
-- **Not tested end to end:** free-text `plan` with a live model. Without a model it falls back to keyword matching and says so.
-- Only the `claude` worker enforces the reviewer's read-only lockdown and the worker's write allow-list through flags. For the others the rules are in the brief and a stray-write check catches violations afterward; it cannot prevent them.
-- Cost is only known for agents whose output reports it (`claude`). For the others `--max-budget-usd` does nothing.
-- `plan` makes one ticket per workflow (`--stages` for one per stage). If a request needs the same workflow twice, edit the map or run `plan` twice.
-- `codex`, `opencode`, and `custom` workers count as done on exit code 0 plus a `receipt.md`; their output is not parsed.
-- A ticket whose `affects` files were already modified before launch is held. Reset its `status` to `open` after you commit or stash.
-- The scan and the keyword fallback are heuristic. Unusual layouts leave gaps in `ports.md`. The approve step exists for that.
-- Tried on small trees only. Please report what breaks.
+dagr is new and in **alpha**. So far it has been tested with Claude Code only. Codex, Cursor, OpenCode and other harnesses are supported by design but not yet tested. If you try one, an [integration report](https://github.com/shirshogd/dagr/issues/new/choose) helps a lot.
 
 ## More
 
