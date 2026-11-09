@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+docs/assets/_captures/
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,16 @@
+{
+  "root": ".",
+  "l0_files": ["CLAUDE.md"],
+  "workflows_root": "workflows",
+  "workflow_glob": "workflows/*/",
+  "contract_name": "CONTEXT.md",
+  "knowledge_dirs": ["knowledge"],
+  "output_dirs": ["output"],
+  "workers": {
+    "claude": "(engine default, unchanged)",
+    "codex": "(engine default, unchanged)",
+    "opencode": "(engine default, unchanged)",
+    "custom": ""
+  },
+  "created": "2026-01-12T10:30:00"
+}

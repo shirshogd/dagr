@@ -1,0 +1,9 @@
+# dagr:begin
+# dagr
+.dagr/engine/
+.dagr/backup/
+.dagr/maps/*/assets/**/worker-*.out
+.dagr/maps/*/assets/**/worker-*.err
+.dagr/maps/*/assets/**/*.prompt.txt
+.dagr/maps/*/assets/*.pid
+# dagr:end

@@ -1,0 +1,12 @@
+---
+description: Route multi-step requests through dagr's graph-loop workflow
+alwaysApply: true
+---
+
+<!-- dagr:begin -->
+## Multi-step requests (dagr)
+
+Multi-step request? Enter through `{{workflows_root}}/graph-loop/{{contract_name}}`.
+Engine: `python -B .dagr/engine/dagr/cli.py <cmd>` (cmds: scan, ports, doctor, plan, go, run, status).
+Nothing runs until the human says `go`.
+<!-- dagr:end -->

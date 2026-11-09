@@ -1,0 +1,34 @@
+name: Integration report
+description: dagr mis-read my ICM tree.
+labels: [integration-report]
+body:
+  - type: input
+    id: agent
+    attributes:
+      label: Agent used
+      description: For example Claude Code, Codex, Cursor, OpenCode, and its model.
+    validations:
+      required: true
+  - type: textarea
+    id: tree
+    attributes:
+      label: Tree shape
+      description: Folder layout, folders only. Remove private names.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: scan
+    attributes:
+      label: Excerpt of .dagr/scan.md
+      description: The part that is wrong. Remove private content.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What went wrong
+      description: What dagr said, and what is true.
+    validations:
+      required: true
