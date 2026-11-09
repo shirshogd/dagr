@@ -66,7 +66,7 @@ def write_question(ticket, slug, map_dir, graph=None) -> Path:
              "set `status: dropped`.", "",
              "## Answer", "", PLACEHOLDER, ""]
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+    p.write_bytes(("\n".join(lines)).encode("utf-8"))
     return p
 
 

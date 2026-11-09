@@ -65,7 +65,7 @@ def append_ledger(root, rows) -> None:
     for r in rows:
         body += "| {port} | {path} | {by} | {map} | {date} |\n".format(**r)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(body, encoding="utf-8", newline="\n")
+    p.write_bytes((body).encode("utf-8"))
 
 
 # --------------------------------------------------------------------------
@@ -518,10 +518,10 @@ def plan_request(root, cfg, request, slug=None, use_model=True, expand_stages=Fa
     for t in tickets:
         p = md / "tickets" / f"{t['id']}-{t['slug']}.md"
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(t["text"], encoding="utf-8", newline="\n")
+        p.write_bytes((t["text"]).encode("utf-8"))
     (md / "assets").mkdir(exist_ok=True)
-    (md / "map.md").write_text(render_map(slug, request, method, plan, tickets, nodes, order,
-                                          wires), encoding="utf-8", newline="\n")
+    (md / "map.md").write_bytes((render_map(slug, request, method, plan, tickets, nodes, order,
+                                          wires)).encode("utf-8"))
     out(f"map: .dagr/maps/{slug}/map.md  ({len(tickets)} ticket(s); planner: {method})")
     for t in tickets:
         out(f"  {t['id']}  {t['title']}  blocked-by [{', '.join(t['blocked_by'])}]"

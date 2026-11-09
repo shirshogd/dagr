@@ -256,7 +256,6 @@ def run_scan(root) -> dict:
     s = scan(root)
     d = root / ".dagr"
     d.mkdir(parents=True, exist_ok=True)
-    (d / "scan.json").write_text(json.dumps(s, indent=2, sort_keys=True) + "\n",
-                                 encoding="utf-8", newline="\n")
-    (d / "scan.md").write_text(render_md(s), encoding="utf-8", newline="\n")
+    (d / "scan.json").write_bytes((json.dumps(s, indent=2, sort_keys=True) + "\n").encode("utf-8"))
+    (d / "scan.md").write_bytes((render_md(s)).encode("utf-8"))
     return s

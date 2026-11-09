@@ -112,7 +112,7 @@ def render(graph, state, map_dir=None, now=None) -> str:
                                         else None)
     if md is not None and md.is_dir():
         tmp = md / "STATUS.md.tmp"
-        tmp.write_text(render_md(graph, state, now), encoding="utf-8", newline="\n")
+        tmp.write_bytes((render_md(graph, state, now)).encode("utf-8"))
         tmp.replace(md / "STATUS.md")
     return text
 

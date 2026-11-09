@@ -373,7 +373,7 @@ def run_apply(root, items_arg=None, dry_run=False, out=print) -> int:
                 backed.add(rel)
             man.append(f"item {n}  {rel}  {'existing' if existed else 'new'}")
         bdir.mkdir(parents=True, exist_ok=True)
-        (bdir / "MANIFEST.md").write_text("\n".join(man) + "\n", encoding="utf-8", newline="\n")
+        (bdir / "MANIFEST.md").write_bytes(("\n".join(man) + "\n").encode("utf-8"))
         for rel in {x[2] for x in todo}:
             p = root / rel
             p.parent.mkdir(parents=True, exist_ok=True)
@@ -385,7 +385,7 @@ def run_apply(root, items_arg=None, dry_run=False, out=print) -> int:
     for n, it, rel, res in plan:
         log.append(f"| {n} | {rel} | {it['action']} | "
                    f"{'applied' if res == 'applied' else 'already applied'} |")
-    (d / "APPLY-LOG.md").write_text("\n".join(log) + "\n", encoding="utf-8", newline="\n")
+    (d / "APPLY-LOG.md").write_bytes(("\n".join(log) + "\n").encode("utf-8"))
     out(f"applied {len(todo)} item(s), {len(plan) - len(todo)} already applied"
         + (f"; backup .dagr/backup/{stamp}/" if stamp else "") + "; log .dagr/APPLY-LOG.md")
     return 0
