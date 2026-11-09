@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/banner.png" alt="dagr: your folders, wired into a graph of agent work" width="100%">
+<img src="docs/assets/dagr-dagr-banner.png" alt="dagr: your folders, wired into a graph of agent work" width="100%">
 
 # dagr
 

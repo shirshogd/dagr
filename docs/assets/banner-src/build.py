@@ -1,4 +1,4 @@
-# Generates ../banner.svg (pixel art as rects) and renders banner.png + scaled captures.
+# Generates ../dagr-banner.svg (pixel art as rects) and renders dagr-banner.png + scaled captures.
 import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 ASSETS = os.path.dirname(HERE)
@@ -165,7 +165,7 @@ for i, parts in enumerate(lines):
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" shape-rendering="crispEdges" role="img" '
        f'aria-label="dagr: your folders, wired into a graph of agent work">\n<title>dagr: your folders, wired into a graph of agent work</title>\n'
        + "\n".join(out) + "\n</svg>\n")
-open(os.path.join(ASSETS, "banner.svg"), "w", encoding="utf-8").write(svg)
+open(os.path.join(ASSETS, "dagr-banner.svg"), "w", encoding="utf-8").write(svg)
 
 from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
@@ -175,10 +175,10 @@ with sync_playwright() as p:
         br = p.chromium.launch(channel="msedge")
     pg = br.new_page(viewport={"width": W, "height": H})
     pg.set_content(f'<body style="margin:0;background:transparent">{svg}</body>')
-    pg.screenshot(path=os.path.join(ASSETS, "banner.png"), omit_background=True)
+    pg.screenshot(path=os.path.join(ASSETS, "dagr-banner.png"), omit_background=True)
     br.close()
 from PIL import Image
-im = Image.open(os.path.join(ASSETS, "banner.png")).convert("RGBA")
+im = Image.open(os.path.join(ASSETS, "dagr-banner.png")).convert("RGBA")
 for tw_ in (400, 830):
     bg = Image.new("RGBA", im.size, "#ffffff"); bg.alpha_composite(im)
     bg.convert("RGB").resize((tw_, round(H * tw_ / W)), Image.LANCZOS).save(os.path.join(ASSETS, "_captures", f"banner-{tw_}.png"))
